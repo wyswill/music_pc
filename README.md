@@ -1,10 +1,12 @@
-# asdasd
+# Wmusic
+
+基于 electro-vue+docker(实现网易云音乐 API 的代理)实现的一个 pc 端应用程序。 基本功能和网易云音乐相同
 
 > An electron-vue project
 
 #### Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
