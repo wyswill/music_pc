@@ -1,0 +1,200 @@
+@charset 'utf8';
+.geXingTuiJian {
+  margin-top: 60px;
+}
+/* banner */
+.swiper-container {
+  width: 93%;
+  height: 300px;
+  border-radius: 18px;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+.swiper-pagination.swiper-pagination-bullets {
+  top: 0;
+}
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: red;
+}
+/* sun_list */
+.sun_list {
+  margin: 0 3.2%;
+}
+.sun_list .title,
+.newMusic .title,
+.tuijianMv .title {
+  margin: 11px 0;
+  background: url("../../../assets/image/arro.right.png") no-repeat;
+  background-position: 69px 2px;
+  background-size: 23px;
+}
+.sun_list li:nth-child(5) img,
+.sun_list li:nth-child(10) img {
+  margin-right: -92px;
+}
+.sun_list li {
+  margin-bottom: 70px;
+  position: relative;
+}
+.sun_list li:nth-child(5) ~ li {
+  margin-bottom: 0px;
+}
+.sun_list li img {
+  width: 134px;
+  height: 134px;
+  margin-right: 115.24px;
+  border-radius: 8px;
+}
+.sun_list li img:hover {
+  cursor: pointer;
+}
+.sun_list li .names {
+  width: 135px;
+  position: absolute;
+  font-size: 14px;
+  text-overflow: ellipsis;
+}
+.sun_list li .play {
+  position: absolute;
+  bottom: 20px;
+  left: 88px;
+  width: 35px;
+  height: 35px;
+  background: rgba(60, 58, 58, 0.72);
+  border-radius: 22px;
+}
+.sun_list li .play img {
+  width: 35px;
+  height: 35px;
+  padding-left: 2px;
+}
+/* 独家放送 */
+.dujia {
+  margin-top: 75px;
+}
+.dujia .lists img {
+  width: 300px;
+  border-radius: 5px;
+}
+.dujia .lists {
+  margin-right: 119px;
+}
+.dujia .lists:last-child {
+  margin-right: 0;
+}
+.dujia .lists .names {
+  width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+}
+/* 最新音乐 */
+.newMusic {
+  margin-top: 40px;
+}
+.newMusic .list li img {
+  width: 85px;
+  float: left;
+  margin: 5px 0;
+  border-radius: 7px;
+}
+.newMusic .list ul {
+  height: 500px;
+}
+.newMusic .list li {
+  width: 50%;
+  border-top: 1px solid #d6d6d6;
+  padding: 3px 0;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+.newMusic .list li:last-child,
+.newMusic .list li:nth-child(9) {
+  border-bottom: 1px solid #d6d6d6;
+}
+.newMusic .list li:nth-child(1),
+.newMusic .list li:nth-child(2),
+.newMusic .list li:nth-child(3),
+.newMusic .list li:nth-child(4),
+.newMusic .list li:nth-child(5) {
+  float: left;
+}
+
+.newMusic .list li:nth-child(5) ~ li {
+  float: right;
+}
+.newMusic .list li .song_info {
+  margin-left: 10px;
+}
+.newMusic .list li .song_info p,
+.newMusic .list li .song_info h2 {
+  width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 12px;
+}
+.newMusic .list li .song_info .play {
+  position: absolute;
+  background: rgba(228, 228, 228, 0.74);
+  border-radius: 25px;
+  width: 45px;
+  height: 43px;
+  left: 16px;
+  bottom: 30px;
+}
+.newMusic .list li .song_info .play img {
+  width: 42px;
+  margin: 1px 4px;
+}
+.newMusic .list li:hover {
+  background: #f1efef;
+}
+.newMusic .list li .song_info .moive img {
+  width: 42px;
+}
+.newMusic .list li .song_info .moive {
+  position: absolute;
+  top: 24px;
+  right: 10px;
+}
+/* mv */
+.tuijianMv {
+  margin-top: 30px;
+}
+.tuijianMv .mvlist .block img {
+  width: 98%;
+  border-radius: 10px;
+}
+.tuijianMv .mvlist {
+  display: flex;
+}
+.tuijianMv .mvlist > .block {
+  flex-grow: 1;
+}
+.tuijianMv .mvlist .cover_img {
+  cursor: pointer;
+  position: relative;
+}
+.tuijianMv .mvlist .author {
+  color: #989898;
+}
+
+.tuijianMv .mvlist .mask {
+  width: 95%;
+  padding-left: 7px;
+  position: absolute;
+  top: 0px;
+  border-radius: 8px 8px 0 0;
+  color: #fdfdfd;
+  background: rgba(121, 119, 119, 0.52);
+}
+.tuijianMv .mvlist .mask::before {
+  content: url("../../../assets/image/播放 三角形.png");
+}

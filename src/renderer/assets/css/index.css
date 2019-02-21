@@ -1,0 +1,96 @@
+@charset 'utf8';
+/* 清除边距 */
+h1 h2 h3 h4 h5 h6,
+p,
+ul,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.waper {
+  margin: 0 35px;
+}
+li {
+  list-style: none;
+}
+.navBar {
+  margin: 10px 0;
+}
+.navBar li,
+.navBar {
+  display: inline-block;
+}
+.navBar li {
+  margin: 0 45px;
+  padding-bottom: 15px;
+}
+.active {
+  color: rgb(208, 27, 24);
+  border-bottom: 2px solid rgb(208, 27, 24);
+}
+.serach {
+  height: 22px;
+  border-radius: 13px;
+  border: 1px solid #ccc;
+  text-indent: 25px;
+  outline: none;
+}
+.inping .waper {
+  position: relative;
+}
+.jingpin_bg {
+  height: 170px;
+  filter: blur(21px);
+  background: url("../image/bg.jpg") no-repeat;
+}
+.jingpin_info {
+  width: 1137px;
+  height: 170px;
+  position: absolute;
+  top: 57px;
+  background: rgba(16, 16, 16, 0.45);
+  border-radius: 17px;
+}
+.jingpin_bg_img {
+  width: 145px;
+  margin: 12px;
+  border-radius: 13px;
+}
+.jingpin_info .info {
+  margin-top: 12px;
+}
+.nav .icon {
+  margin-left: -126px;
+  position: relative;
+}
+.nav .icon img {
+  width: 20px;
+  position: absolute;
+  top: 1px;
+}
+.jingpin_info p.block {
+  padding: 5px;
+  border: 1px solid #e6932d;
+  border-radius: 18px;
+  color: #e6932d;
+}
+.jingpin_info .info h3 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.music_list_all .waper {
+  margin: 15px 45px;
+}
+
+.music_list_all span {
+  border: 1px solid #bdbdbd;
+  border-radius: 15px;
+  padding: 5px;
+  color: #504c4c;
+}
+.music_list_all li {
+  line-height: 35px;
+  margin-left: 35px;
+}
