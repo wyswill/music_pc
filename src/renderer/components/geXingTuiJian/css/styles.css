@@ -157,7 +157,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: #f1efef;
 }
 .newMusic .list li .song_info .moive img {
-  width: 42px;
+  width: 30px;
 }
 .newMusic .list li .song_info .moive {
   position: absolute;
@@ -168,10 +168,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 .tuijianMv {
   margin-top: 30px;
 }
-.tuijianMv .mvlist .block img {
-  width: 98%;
-  border-radius: 10px;
-}
+
 .tuijianMv .mvlist {
   display: flex;
 }
@@ -179,15 +176,22 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   flex-grow: 1;
 }
 .tuijianMv .mvlist .cover_img {
+  width: 430px;
   cursor: pointer;
   position: relative;
 }
+
+.tuijianMv .mvlist .block img {
+  width: 64%;
+  border-radius: 10px;
+}
+
 .tuijianMv .mvlist .author {
   color: #989898;
 }
 
 .tuijianMv .mvlist .mask {
-  width: 95%;
+  width: 62%;
   padding-left: 7px;
   position: absolute;
   top: 0px;
@@ -197,4 +201,13 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 }
 .tuijianMv .mvlist .mask::before {
   content: url("../../../assets/image/播放 三角形.png");
+}
+/* 主播 */
+.newMusic .list li:nth-child(5) {
+  border-bottom: 1px solid #d6d6d6;
+}
+/* buttom */
+.buttom {
+  text-align: center;
+  margin-top: -100px;
 }

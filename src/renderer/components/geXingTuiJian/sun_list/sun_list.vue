@@ -1,7 +1,7 @@
 <template>
   <div class="sun_list">
     <div class="title">
-      <h3 class="block" style="cursor: pointer;" v-on:click="to_list('/sun_list')">推荐歌单</h3>
+      <h3 class="block" style="cursor: pointer;" v-on:click="method.to_list('/sun_list')">推荐歌单</h3>
     </div>
     <div class="list">
       <ul>
@@ -23,12 +23,6 @@
 export default {
   data() {
     return {};
-  },
-  methods: {
-    /* 跳转 */
-    to_list(path) {
-      this.$router.push(path);
-    }
   },
   props: ["sun_list", "method", "is_can_play"]
 };

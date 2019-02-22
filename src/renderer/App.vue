@@ -50,4 +50,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.cursor:hover {
+  cursor: pointer;
+}
 </style>

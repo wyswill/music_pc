@@ -1,10 +1,12 @@
 <template>
   <div class="geXingTuiJian">
-    <carrousel :banner="banner"></carrousel>
+    <carrousel :banner="banner" :method="utils"></carrousel>
     <sunlist :sun_list="sun_list" :is_can_play="is_can_play" :method="utils"></sunlist>
     <dujia :dujia_Data="dujia_Data" :method="utils"></dujia>
     <newMusic :newMusic="newMusic" :method="utils"></newMusic>
     <mvs :mv="mv" :method="utils"></mvs>
+    <zhubo :zhubo_info="zhubo_info" :method="utils"></zhubo>
+    <buttom></buttom>
   </div>
 </template>
 
@@ -15,7 +17,9 @@ export default {
     sunlist: require("./sun_list/sun_list.vue").default,
     dujia: require("./sun_list/dujia.vue").default,
     newMusic: require("./sun_list/newMusic.vue").default,
-    mvs: require("./sun_list/tuiJianMv.vue").default
+    mvs: require("./sun_list/tuiJianMv.vue").default,
+    zhubo: require("./sun_list//zhubo.vue").default,
+    buttom: require("./sun_list//buttom.vue").default
   },
   data() {
     return {
@@ -24,12 +28,14 @@ export default {
       dujia_Data: [],
       newMusic: [],
       mv: [],
+      zhubo_info: [],
       utils: {
         is_can_play_fuc: this.is_can_play_fuc,
         sun_can_play: this.sun_can_play,
         get_sun_info: this.get_sun_info,
         get_mv_data: this.get_mv_data,
-        get_mv_url: this.get_mv_url
+        get_mv_url: this.get_mv_url,
+        to_list: this.to_list
       },
       is_can_play: false
     };
@@ -99,6 +105,27 @@ export default {
       let { result } = res.data;
       return result;
     },
+    /* 得主播电台 */
+    async get_zhuBoDianTai() {
+      let url = "http://localhost:3000/personalized/djprogram";
+      let res = await this.$http(url);
+      let { result } = res.data;
+      let zhubo_info = [];
+      result.map(ele => {
+        let {
+          name,
+          copywriter,
+          picUrl,
+          program,
+          program: {
+            radio: { id }
+          }
+        } = ele;
+        zhubo_info.push({ id, name, copywriter, picUrl, program });
+      });
+      return zhubo_info;
+    },
+
     /* 获取歌单是否可用 */
     async is_can_play_fuc(id) {
       let url = `http://localhost:3000/playlist/detail?id=${id}`;
@@ -126,6 +153,16 @@ export default {
     async get_mv_url(id) {
       let res = await this.$http(`http://localhost:3000/mv/url?id=${id}`);
       return res.data;
+    },
+    /* 的到电台节目音频 */
+    async getRedio(id) {
+      let url = " http://localhost:3000/song/url?id=1340537821";
+      let res = await this.$http(url);
+      return res.data.data;
+    },
+    /* 跳转 */
+    to_list(path) {
+      this.$router.push(path);
     }
   },
   async created() {
@@ -139,6 +176,8 @@ export default {
     this.newMusic = await this.getNewMusic();
     // 获取mv
     this.mv = await this.get_mv_info();
+    // 获取主播信息
+    this.zhubo_info = await this.get_zhuBoDianTai();
   }
 };
 </script>
