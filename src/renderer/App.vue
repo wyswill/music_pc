@@ -4,7 +4,7 @@
       <!-- nav -->
       <nav class="nav">
         <ul class="navBar">
-          <li v-for="item in music_type_list" :key="item" v-on:click="is_active">{{ item }}</li>
+          <li v-for="(item,index) in music_type_list" :key="index" v-on:click="is_active">{{ item }}</li>
         </ul>
         <input type="text" class="serach" placeholder="搜索">
         <span class="icon">
@@ -39,8 +39,6 @@
   display: inline-block;
 }
 .musice_list {
-  position: fixed;
-  top: 0;
   width: 100%;
   z-index: 999;
   background: #fff;
@@ -51,6 +49,26 @@
   white-space: nowrap;
 }
 .cursor:hover {
+  cursor: pointer;
+}
+.navBar li:nth-child(7) {
+  background: url("./assets/image/back.png") no-repeat;
+}
+.navBar li:last-child {
+  margin: 0;
+  background: url("./assets/image/forword.png") no-repeat;
+}
+.navBar li:nth-child(7),
+.navBar li:last-child {
+  width: 20px;
+  background-size: 20px;
+  background-position-y: -3px;
+  color: #fff;
+  font-size: 1px;
+  line-height: 20px;
+}
+.navBar li:nth-child(7):hover,
+.navBar li:last-child:hover {
   cursor: pointer;
 }
 </style>

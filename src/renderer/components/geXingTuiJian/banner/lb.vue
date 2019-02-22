@@ -34,6 +34,7 @@ export default {
           click: async function() {
             let index = this.realIndex; //获取每个轮播图的下标
             let targetId = vm.get_song_info(index);
+            vm.method.to_list("showInfo", { targetId });
           }
         }
       }

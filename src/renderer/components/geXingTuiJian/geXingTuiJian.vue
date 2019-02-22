@@ -161,8 +161,8 @@ export default {
       return res.data.data;
     },
     /* 跳转 */
-    to_list(path) {
-      this.$router.push(path);
+    to_list(path, from = {}) {
+      this.$router.push({ name: path, params: from });
     }
   },
   async created() {
@@ -182,5 +182,5 @@ export default {
 };
 </script>
 <style>
-@import url("./css/styles.css");
+@import url("./style/style");
 </style>

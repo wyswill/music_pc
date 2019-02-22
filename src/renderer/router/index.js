@@ -36,6 +36,11 @@ export default new Router({
       component: require("@/components/newMusic/newMusic").default
     },
     {
+      path: "/showInfo",
+      name: "showInfo",
+      component: require("@/components/showInfo/showInfo").default
+    },
+    {
       path: "*",
       redirect: "/"
     }

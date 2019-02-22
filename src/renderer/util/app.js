@@ -10,12 +10,17 @@ export default {
         "主播电台",
         "排行榜",
         "歌手",
-        "最新音乐"
+        "最新音乐",
+        "b",
+        "f"
       ]
     };
   },
   methods: {
     is_active(e) {
+      let flag = e.target.innerText;
+      if (flag == "b") window.history.back();
+      if (flag == "f") window.history.forward();
       /* 设置选中样式 
       ------------------*/
       this.seet_active();
