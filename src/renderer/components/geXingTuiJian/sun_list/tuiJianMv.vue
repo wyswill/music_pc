@@ -1,7 +1,9 @@
 <template>
   <div class="tuijianMv">
     <div class="waper">
-      <div class="title">推荐MV</div>
+      <div class="title">
+        <h3 class="block" style="cursor: pointer;">推荐MV</h3>
+      </div>
       <div class="mvlist">
         <div class="block text_overflow" v-for="(item,index) in mv" :key="index">
           <!-- 封面图 -->

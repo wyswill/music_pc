@@ -12,7 +12,7 @@ export default new Router({
     },
     {
       path: "/sun_list",
-      name: "sun_lit",
+      name: "sun_list",
       component: require("@/components/index").default
     },
     {

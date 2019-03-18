@@ -1,11 +1,15 @@
 <template>
   <div class="newMusic">
     <div class="waper">
-      <div class="title">最新音乐</div>
+      <div class="title">
+        <router-link to="/newMusic">
+          <h3 class="block" style="cursor: pointer;">最新音乐</h3>
+        </router-link>
+      </div>
       <div class="list">
         <ul>
-          <li v-for="(item ,index) in newMusic" :key="index">
-            <img :src="item.blurPicUrl" :id="item.id">
+          <li v-for="(item ,index) in newMusic" :key="index" @click="click(item.id)">
+            <img :src="item.blurPicUrl">
             <div class="song_info clear block">
               <h2>{{item.songeName}}</h2>
               <p>{{item.artists}}</p>
@@ -25,12 +29,17 @@
 
 <script>
 export default {
+  props: ["newMusic", "method"],
   data() {
     return {
       list: [1, 23, 123, 12, 3],
       is_can_play: true
     };
   },
-  props: ["newMusic", "method"]
+  methods: {
+    click(id) {
+      this.method.play(id);
+    }
+  }
 };
 </script>

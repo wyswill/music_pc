@@ -1,7 +1,9 @@
 <template>
   <div class="sun_list">
     <div class="title">
-      <h3 class="block" style="cursor: pointer;" v-on:click="method.to_list('/sun_list')">推荐歌单</h3>
+      <router-link to="sun_list">
+        <h3 class="block" style="cursor: pointer;">推荐歌单</h3>
+      </router-link>
     </div>
     <div class="list">
       <ul>

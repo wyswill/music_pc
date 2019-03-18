@@ -35,7 +35,8 @@ export default {
         get_sun_info: this.get_sun_info,
         get_mv_data: this.get_mv_data,
         get_mv_url: this.get_mv_url,
-        to_list: this.to_list
+        to_list: this.to_list,
+        play: this.play
       },
       is_can_play: false
     };
@@ -46,9 +47,9 @@ export default {
       let bannerData = await this.$http("http://localhost:3000/banner");
       let { banners } = bannerData.data;
       let banner_img_src = [];
-      banners.forEach(ele => {
-        let { imageUrl, targetId } = ele;
-        banner_img_src.push({ imageUrl, targetId });
+      banners.map(ele => {
+        let { imageUrl, targetId, typeTitle, url } = ele;
+        banner_img_src.push({ imageUrl, targetId, typeTitle, url });
       });
       return banner_img_src;
     },
@@ -125,7 +126,8 @@ export default {
       });
       return zhubo_info;
     },
-
+    /* 
+    ------------------------------------------------------- */
     /* 获取歌单是否可用 */
     async is_can_play_fuc(id) {
       let url = `http://localhost:3000/playlist/detail?id=${id}`;
@@ -134,15 +136,15 @@ export default {
     },
     /* 音乐是否可用播放 */
     async sun_can_play(id) {
-      let url = `http://localhost:3000/check/music?id${id}`;
+      let url = `http://localhost:3000/check/music?id=${id}`;
       let res = await this.$http(url);
       return res.data;
     },
     /* 得到歌曲信息 */
     async get_sun_info(id) {
-      let url = `http://localhost:3000/song/url?id${id}`;
+      let url = `http://localhost:3000/song/url?id=${id}`;
       let res = await this.$http(url);
-      return res.data;
+      return res.data.data[0];
     },
     /* 得到mv数据 */
     async get_mv_data(id) {
@@ -156,16 +158,30 @@ export default {
     },
     /* 的到电台节目音频 */
     async getRedio(id) {
-      let url = " http://localhost:3000/song/url?id=1340537821";
+      let url = `http://localhost:3000/song/url?id=${id}`;
       let res = await this.$http(url);
       return res.data.data;
     },
     /* 跳转 */
     to_list(path, from = {}) {
-      this.$router.push({ name: path, params: from });
+      this.$router.push({
+        name: path,
+        params: { from, utils: this.utils }
+      });
+    },
+    /* play music */
+    async play(targetId) {
+      let audio = document.querySelector("audio");
+      let res = await this.get_sun_info(targetId);
+      if (res.url == null) {
+        alert("没有该歌曲的版权哦！");
+        return;
+      }
+      audio.src = res.url;
+      audio.id = res.id;
     }
   },
-  async created() {
+  async mounted() {
     // 获取banner数据
     this.banner = await this.getBannerData();
     //获取歌曲列表数据

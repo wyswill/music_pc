@@ -3,6 +3,7 @@
     <div class="swiper-pagination" slot="pagination"></div>
     <swiper-slide v-for="item in banner" :key="item.id">
       <img :src="item.imageUrl">
+      <span>{{item.typeTitle}}</span>
     </swiper-slide>
   </swiper>
 </template>
@@ -33,8 +34,22 @@ export default {
         on: {
           click: async function() {
             let index = this.realIndex; //获取每个轮播图的下标
-            let targetId = vm.get_song_info(index);
-            vm.method.to_list("showInfo", { targetId });
+            let { targetId, typeTitle, url } = vm.get_song_info(index);
+            //  url, typeTitle
+            // 是歌曲的话直接播放
+            if (
+              typeTitle == "独家" ||
+              typeTitle == "独家首发" ||
+              typeTitle == "新歌首发"
+            ) {
+              // 直接播放音乐
+              await vm.method.play(targetId);
+              return;
+            } else {
+              let data = targetId ? targetId : url;
+              vm.method.to_list("showInfo", { data });
+            }
+            return;
           }
         }
       }
@@ -42,7 +57,7 @@ export default {
   },
   methods: {
     get_song_info(index) {
-      return this.banner[index].targetId;
+      return this.banner[index];
     }
   },
   async created() {
