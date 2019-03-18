@@ -60,7 +60,7 @@ export default {
       return this.banner[index];
     }
   },
-  async created() {
+  async mounted() {
     vm = this;
   },
   computed: {

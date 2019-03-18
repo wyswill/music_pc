@@ -71,4 +71,13 @@
 .navBar li:last-child:hover {
   cursor: pointer;
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 182, 182, 0.29);
+
+  border-radius: 5px;
+}
 </style>

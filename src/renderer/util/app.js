@@ -72,14 +72,21 @@ export default {
           li[index].className = "active";
         }
       });
+    },
+    play_music() {
+      this.$on("play_music", ele => {
+        console.log(ele);
+      });
     }
   },
   mounted() {
-    /* 设置第一个默认选中样式 */
-    let li = document.querySelector(".navBar li");
-    li.className = "active";
+    /* 设置选中样式 
+      ------------------*/
+    this.seet_active();
   },
   updated() {
+    /* 设置选中样式 
+    ------------------*/
     this.seet_active();
   }
 };

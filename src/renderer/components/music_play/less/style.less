@@ -1,9 +1,73 @@
 @charset 'urf8';
 .music_play {
-  width: 100%;
+  width: 101%;
   height: 60px;
   position: fixed;
   bottom: 0;
   z-index: 999;
   background: rgba(255, 0, 0, 0.89);
+  .play_crol {
+    display: inline-block;
+    .l_info {
+      width: 300px;
+      float: left;
+      margin: 2% 3%;
+      border-radius: 7px;
+      img {
+        width: 50px;
+        height: 50px;
+        float: left;
+      }
+      p {
+        font-size: 15px;
+        color: #fff;
+        overflow: hidden;
+      }
+    }
+    .midle {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      #pre {
+        transform: rotate(0.5turn);
+      }
+    }
+    .r_menew {
+    }
+  }
+}
+.list {
+  .item {
+    margin: 1% 5%;
+    position: relative;
+    display: inline-block;
+    &:nth-child(4),
+    &:nth-child(8),
+    &:nth-child(12) {
+      margin-right: 0;
+    }
+    img {
+      width: 174px;
+      height: 174px;
+      border-radius: 5px;
+    }
+    p {
+      width: 174px;
+    }
+    .play {
+      position: absolute;
+      bottom: 26%;
+      left: 74%;
+      width: 35px;
+      height: 35px;
+      background: rgba(60, 58, 58, 0.72);
+      border-radius: 22px;
+
+      img {
+        width: 35px;
+        height: 35px;
+        padding-left: 2px;
+      }
+    }
+  }
 }

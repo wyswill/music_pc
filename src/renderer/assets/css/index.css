@@ -36,14 +36,6 @@ li {
   text-indent: 25px;
   outline: none;
 }
-.inping .waper {
-  position: relative;
-}
-.jingpin_bg {
-  height: 170px;
-  filter: blur(21px);
-  background: url("../image/bg.jpg") no-repeat;
-}
 .jingpin_info {
   width: 1137px;
   height: 170px;
@@ -78,19 +70,4 @@ li {
 .jingpin_info .info h3 {
   color: #fff;
   margin-bottom: 0;
-}
-
-.music_list_all .waper {
-  margin: 15px 45px;
-}
-
-.music_list_all span {
-  border: 1px solid #bdbdbd;
-  border-radius: 15px;
-  padding: 5px;
-  color: #504c4c;
-}
-.music_list_all li {
-  line-height: 35px;
-  margin-left: 35px;
 }

@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import bus from "../../util/bus.js";
 export default {
   components: {
     carrousel: require("./banner/lb.vue").default,
@@ -171,14 +172,14 @@ export default {
     },
     /* play music */
     async play(targetId) {
-      let audio = document.querySelector("audio");
       let res = await this.get_sun_info(targetId);
       if (res.url == null) {
         alert("没有该歌曲的版权哦！");
         return;
       }
-      audio.src = res.url;
-      audio.id = res.id;
+      let { url, id } = res;
+      let msg = JSON.stringify({ url, id });
+      bus.$emit("music_info", msg);
     }
   },
   async mounted() {
