@@ -79,6 +79,7 @@ export default {
       var audio = this.get_audio;
       audio.currentTime = 0;
       audio.pause();
+      this.isPlay = false;
     }
   },
   computed: {

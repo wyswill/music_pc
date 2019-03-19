@@ -16,7 +16,7 @@
               <div :class="is_play" v-if="is_can_play" @click="click(item.id)">
                 <img src="../../../assets/image/play.png" alt>
               </div>
-              <div class="moive" :mvid="item.mvid" v-if="item.mvid">
+              <div class="moive" @click="mvHander(item.mvid)" v-if="item.mvid">
                 <img src="../../../assets/image/moive.png" alt>
               </div>
             </div>
@@ -42,6 +42,10 @@ export default {
   methods: {
     click(id) {
       this.method.play(id);
+    },
+    mvHander(id) {
+      // 开启新窗口，播放视频
+      
     }
   }
 };

@@ -48,20 +48,26 @@
     }
     table {
       tr {
-        border-bottom: 1px solid #ccc;
+        background: rgba(204, 204, 204, 0.23);
+        border: 1px solid rgba(204, 204, 204, 0.23);
         &:hover {
           background: #ccc;
           cursor: pointer;
         }
+        &:first-child {
+          height: 56px;
+          background: #fbfbfb;
+        }
         th {
-          text-align: center;
+          text-align: left;
+          text-indent: 24px;
         }
         td {
-          width: 100%;
+          width: 14%;
           height: 35px;
           overflow: hidden;
+          white-space: normal;
           text-overflow: ellipsis;
-          white-space: nowrap;
         }
       }
     }

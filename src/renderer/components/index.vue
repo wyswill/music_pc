@@ -24,12 +24,12 @@ export default {
     async get_item(ids) {
       let url = `http://localhost:3000/top/playlist/highquality?limit=12&cat=${ids}`;
       let res = await this.$http(url);
-      let { playlists, lasttime, id } = res.data;
+      let { playlists, lasttime } = res.data;
       let r = {},
         t = [];
       playlists.forEach(ele => {
-        let { coverImgUrl, name, copywriter } = ele;
-        r = { coverImgUrl, name, copywriter, id: ids };
+        let { coverImgUrl, name, copywriter, id } = ele;
+        r = { coverImgUrl, name, copywriter, id };
         t.push(r);
       });
       this.before = lasttime;
@@ -41,6 +41,3 @@ export default {
   }
 };
 </script>
-<style>
-@import url("./style/index.css");
-</style>
