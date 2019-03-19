@@ -35,7 +35,6 @@ export default {
           click: async function() {
             let index = this.realIndex; //获取每个轮播图的下标
             let { targetId, typeTitle, url } = vm.get_song_info(index);
-            //  url, typeTitle
             // 是歌曲的话直接播放
             if (
               typeTitle == "独家" ||
@@ -45,6 +44,9 @@ export default {
               // 直接播放音乐
               await vm.method.play(targetId);
               return;
+            } else if (typeTitle == "热歌推荐") {
+              let id = targetId ? targetId : url;
+              // vm.method.to_list("songList", { id });
             } else {
               let data = targetId ? targetId : url;
               vm.method.to_list("showInfo", { data });

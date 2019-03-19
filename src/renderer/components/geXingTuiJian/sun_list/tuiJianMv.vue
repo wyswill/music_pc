@@ -32,7 +32,7 @@ export default {
     async click(event) {
       let mvid = event.target.id;
       let res = await this.method.get_mv_url(mvid);
-      // console.log(res.data);获取的mv 数据
+      console.log(res.data);//获取的mv 数据
     }
   }
 };

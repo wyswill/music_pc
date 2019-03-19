@@ -41,6 +41,11 @@ export default new Router({
       component: require("@/components/showInfo/showInfo").default
     },
     {
+      path: "/songList",
+      name: "songList",
+      component: require("@/components/songList").default
+    },
+    {
       path: "*",
       redirect: "/"
     }

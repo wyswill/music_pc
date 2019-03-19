@@ -7,7 +7,7 @@
     </div>
     <div class="list">
       <ul>
-        <li class="block" v-for="(item,index) in sun_list" :key="index">
+        <li class="block" v-for="(item,index) in sun_list" :key="index" @click="clickHandler(item)">
           <img :src="item.picUrl" alt>
           <div class="names">{{item.name}}</div>
           <div class="play" v-if="is_can_play">
@@ -23,9 +23,15 @@
 </template>
 <script>
 export default {
+  props: ["sun_list", "method", "is_can_play"],
   data() {
     return {};
   },
-  props: ["sun_list", "method", "is_can_play"]
+  methods: {
+    clickHandler(item) {
+      let { id } = item;
+      this.method.to_list("songList", { id });
+    }
+  }
 };
 </script>

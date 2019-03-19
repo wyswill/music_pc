@@ -73,8 +73,12 @@ export default {
         (Math.floor(audio.currentTime) / Math.floor(audio.duration)) * 100,
         0
       );
-      $(".pgs-play").css("width", value * 0.907 + "%");
-      $(".played-time").html(transTime(audio.currentTime));
+      this.begain_time = this.transTime(audio.currentTime);
+    },
+    audioEnded() {
+      var audio = this.get_audio;
+      audio.currentTime = 0;
+      audio.pause();
     }
   },
   computed: {
@@ -92,10 +96,14 @@ export default {
       this.get_song_info(info.id);
     });
     let _this = this;
+    /* 实时获取播放的时间 */
     audio.addEventListener("loadedmetadata", function() {
       _this.tatal_time = _this.transTime(this.duration);
     });
+    /* 获取歌曲全部时间 */
     audio.addEventListener("timeupdate", this.updateProgress, false);
+    /* 播放结束 */
+    audio.addEventListener("ended", this.audioEnded, false);
   }
 };
 </script>
