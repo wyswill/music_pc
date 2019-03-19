@@ -45,7 +45,7 @@ export default {
     },
     mvHander(id) {
       // 开启新窗口，播放视频
-      
+      this.method.to_list("vidio", { id });
     }
   }
 };

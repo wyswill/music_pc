@@ -46,6 +46,11 @@ export default new Router({
       component: require("@/components/songList").default
     },
     {
+      path: "/vidio",
+      name: "vidio",
+      component: require("@/container/vidio/index").default
+    },
+    {
       path: "*",
       redirect: "/"
     }
