@@ -8,12 +8,12 @@
       </div>
       <div class="list">
         <ul>
-          <li v-for="(item ,index) in newMusic" :key="index" @click="click(item.id)">
-            <img :src="item.blurPicUrl">
+          <li v-for="(item ,index) in newMusic" :key="index">
+            <img :src="item.blurPicUrl" @click="click(item.id)">
             <div class="song_info clear block">
               <h2>{{item.songeName}}</h2>
               <p>{{item.artists}}</p>
-              <div class="play" v-if="is_can_play">
+              <div :class="is_play" v-if="is_can_play" @click="click(item.id)">
                 <img src="../../../assets/image/play.png" alt>
               </div>
               <div class="moive" :mvid="item.mvid" v-if="item.mvid">
@@ -33,7 +33,10 @@ export default {
   data() {
     return {
       list: [1, 23, 123, 12, 3],
-      is_can_play: true
+      is_can_play: true,
+      is_play: {
+        play: true
+      }
     };
   },
   methods: {

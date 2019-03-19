@@ -21,7 +21,7 @@ a {
 /* banner */
 .swiper-container {
   width: 93%;
-  height: 300px;
+  height: 220px;
   border-radius: 18px;
 }
 .swiper-slide img {
@@ -64,7 +64,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     img {
       width: 134px;
       height: 134px;
-      margin-right: 115.24px;
+      margin-right: 61.24px;
       border-radius: 8px;
       &:hover {
         cursor: pointer;
@@ -97,15 +97,9 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 .dujia {
   margin-top: 75px;
   .lists {
-    margin-right: 119px;
-    &:last-child {
-      margin-right: 0;
-    }
-    &:hover {
-      cursor: pointer;
-    }
+    margin-right: 32px;
     img {
-      width: 300px;
+      width: 279px;
       border-radius: 5px;
     }
     .names {
@@ -114,6 +108,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
       white-space: nowrap;
       overflow: hidden;
       position: absolute;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 }
@@ -131,17 +131,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
         word-break: break-word;
         border-top: 1px solid #d6d6d6;
         .word_ell;
-        &:last-child,
-        &:nth-child(9) {
-          border-bottom: 1px solid #d6d6d6;
-        }
-        &:nth-child(5) ~ li {
-          float: right;
-        }
-        &:hover {
-          background: #f1efef;
-          cursor: pointer;
-        }
         img {
           width: 85px;
           float: left;
@@ -152,11 +141,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
           margin-left: 10px;
           p,
           h2 {
-            width: 400px;
+            width: 304px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             margin-top: 12px;
+            font-size: 20px;
           }
           .play {
             position: absolute;
@@ -180,11 +170,21 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             }
           }
         }
+        &:last-child,
+        &:nth-child(9) {
+          border-bottom: 1px solid #d6d6d6;
+        }
+        &:nth-child(5) ~ li {
+          float: right;
+        }
+        &:hover {
+          background: #f1efef;
+          cursor: pointer;
+        }
       }
     }
   }
 }
-
 /* mv */
 .tuijianMv {
   margin-top: 30px;
@@ -198,7 +198,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
       }
     }
     .cover_img {
-      width: 430px;
+      width: 336px;
       cursor: pointer;
       position: relative;
     }
@@ -219,9 +219,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     }
   }
 }
-
 /* 主播 */
-
 .zhubo {
   .list {
     ul {

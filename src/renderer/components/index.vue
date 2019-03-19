@@ -7,7 +7,6 @@
     <list :data="jingping_info"></list>
   </div>
 </template>
-
 <script >
 import jingping from "./jingping/jinping.vue";
 import music_list_all from "./music_play/music_list_all/music_list_all.vue";
@@ -43,5 +42,5 @@ export default {
 };
 </script>
 <style>
-@import url("../assets/css/index.css");
+@import url("./style/index.css");
 </style>

@@ -72,11 +72,6 @@ export default {
           li[index].className = "active";
         }
       });
-    },
-    play_music() {
-      this.$on("play_music", ele => {
-        console.log(ele);
-      });
     }
   },
   mounted() {
