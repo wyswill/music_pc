@@ -1,9 +1,6 @@
 import axios from "axios";
 import bus from "./bus";
 export default {
-  test() {
-    console.log(axios);
-  },
   /* 获取歌单是否可用 */
   async is_can_play_fuc(id) {
     let url = `http://localhost:3000/playlist/detail?id=${id}`;
