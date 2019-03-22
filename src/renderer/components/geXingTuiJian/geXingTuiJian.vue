@@ -1,11 +1,11 @@
 <template>
   <div class="geXingTuiJian">
-    <carrousel :banner="banner" :method="utils"></carrousel>
-    <sunlist :sun_list="sun_list" :is_can_play="is_can_play" :method="utils"></sunlist>
-    <dujia :dujia_Data="dujia_Data" :method="utils"></dujia>
-    <newMusic :newMusic="newMusic" :method="utils"></newMusic>
-    <mvs :mv="mv" :method="utils"></mvs>
-    <zhubo :zhubo_info="zhubo_info" :method="utils"></zhubo>
+    <carrousel :banner="banner"></carrousel>
+    <sunlist :sun_list="sun_list" :is_can_play="is_can_play"></sunlist>
+    <dujia :dujia_Data="dujia_Data"></dujia>
+    <newMusic :newMusic="newMusic"></newMusic>
+    <mvs :mv="mv"></mvs>
+    <zhubo :zhubo_info="zhubo_info"></zhubo>
     <buttom></buttom>
   </div>
 </template>
@@ -30,15 +30,6 @@ export default {
       newMusic: [],
       mv: [],
       zhubo_info: [],
-      utils: {
-        is_can_play_fuc: this.is_can_play_fuc,
-        sun_can_play: this.sun_can_play,
-        get_sun_info: this.get_sun_info,
-        get_mv_data: this.get_mv_data,
-        get_mv_url: this.get_mv_url,
-        to_list: this.to_list,
-        play: this.play
-      },
       is_can_play: false
     };
   },
@@ -60,7 +51,7 @@ export default {
       let { result } = res.data;
       result.forEach(async ele => {
         let { id } = ele;
-        let res = await this.is_can_play_fuc(id);
+        let res = await this.api.is_can_play_fuc(id);
         if (res) this.is_can_play = true;
       });
       return result;
@@ -72,9 +63,8 @@ export default {
       );
       res.data.result.forEach(async ele => {
         let { url } = ele;
-        let res = await this.is_can_play_fuc(url);
+        let res = await this.api.is_can_play_fuc(url);
       });
-
       return res.data.result;
     },
     /* 得到最新音乐信息 */
@@ -126,60 +116,6 @@ export default {
         zhubo_info.push({ id, name, copywriter, picUrl, program });
       });
       return zhubo_info;
-    },
-    /* 
-    ------------------------------------------------------- */
-    /* 获取歌单是否可用 */
-    async is_can_play_fuc(id) {
-      let url = `http://localhost:3000/playlist/detail?id=${id}`;
-      let result = await this.$http(url);
-      return result.data;
-    },
-    /* 音乐是否可用播放 */
-    async sun_can_play(id) {
-      let url = `http://localhost:3000/check/music?id=${id}`;
-      let res = await this.$http(url);
-      return res.data;
-    },
-    /* 得到歌曲信息 */
-    async get_sun_info(id) {
-      let url = `http://localhost:3000/song/url?id=${id}`;
-      let res = await this.$http(url);
-      return res.data.data[0];
-    },
-    /* 得到mv数据 */
-    async get_mv_data(id) {
-      let res = await this.$http(`http://localhost:3000/mv/detail?mvid=${id}`);
-      return res.data;
-    },
-    /* 获取mv地址 */
-    async get_mv_url(id) {
-      let res = await this.$http(`http://localhost:3000/mv/url?id=${id}`);
-      return res.data;
-    },
-    /* 的到电台节目音频 */
-    async getRedio(id) {
-      let url = `http://localhost:3000/song/url?id=${id}`;
-      let res = await this.$http(url);
-      return res.data.data;
-    },
-    /* 跳转 */
-    to_list(path, from = {}) {
-      this.$router.push({
-        name: path,
-        params: { from, utils: this.utils }
-      });
-    },
-    /* play music */
-    async play(targetId) {
-      let res = await this.get_sun_info(targetId);
-      if (res.url == null) {
-        alert("没有该歌曲的版权哦！");
-        return;
-      }
-      let { url, id } = res;
-      let msg = JSON.stringify({ url, id });
-      bus.$emit("music_info", msg);
     }
   },
   async mounted() {

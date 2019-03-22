@@ -17,14 +17,8 @@ export default {
     return {};
   },
   methods: {
-    to_list(path, from = {}) {
-      this.$router.push({
-        name: path,
-        params: { from }
-      });
-    },
     clickHandler(id) {
-      this.to_list("songList", { id });
+      this.api.to_list("songList", this.$router, { id });
     }
   }
 };

@@ -9,13 +9,12 @@
 </template>
 
 <script>
-// require styles
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 
 let vm;
 export default {
-  props: ["banner", "method"],
+  props: ["banner"],
   components: {
     swiper,
     swiperSlide
@@ -42,14 +41,13 @@ export default {
               typeTitle == "新歌首发"
             ) {
               // 直接播放音乐
-              await vm.method.play(targetId);
+              await vm.api.play(targetId);
               return;
             } else if (typeTitle == "热歌推荐") {
               let id = targetId ? targetId : url;
-              // vm.method.to_list("songList", { id });
             } else {
               let data = targetId ? targetId : url;
-              vm.method.to_list("showInfo", { data });
+              vm.api.to_list("showInfo", vm.$router, { data });
             }
             return;
           }

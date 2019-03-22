@@ -8,19 +8,18 @@
 <script>
 export default {
   data() {
-    return { params: { data: {}, utils: {} }, src: "" };
+    return { params: { data: {} }, src: "" };
   },
   async mounted() {
     let { params } = this.$route;
     let {
-      from: { data },
-      utils
+      from: { data }
     } = params;
     // 活动页面
     if (!parseInt(data)) {
       this.src = data;
     } else {
-      let res = await utils.is_can_play_fuc(data);
+      let res = await this.api.is_can_play_fuc(data);
       console.log(res);
     }
   }

@@ -98,7 +98,6 @@ export default {
       other.push({ title, coverUrl, vid, userName, playTime });
     });
     this.other = other;
-    console.log(other);
   }
 };
 </script>

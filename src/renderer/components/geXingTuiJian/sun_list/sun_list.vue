@@ -23,14 +23,14 @@
 </template>
 <script>
 export default {
-  props: ["sun_list", "method", "is_can_play"],
+  props: ["sun_list", "is_can_play"],
   data() {
     return {};
   },
   methods: {
     clickHandler(item) {
       let { id } = item;
-      this.method.to_list("songList", { id });
+      this.api.to_list("songList",this.$router, { id });
     }
   }
 };

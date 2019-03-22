@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  props: ["newMusic", "method"],
+  props: ["newMusic"],
   data() {
     return {
       list: [1, 23, 123, 12, 3],
@@ -41,11 +41,11 @@ export default {
   },
   methods: {
     click(id) {
-      this.method.play(id);
+      this.api.play(id);
     },
     mvHander(id) {
       // 开启新窗口，播放视频
-      this.method.to_list("vidio", { id });
+      this.api.to_list("vidio", this.$router, { id });
     }
   }
 };

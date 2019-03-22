@@ -1,7 +1,7 @@
 <template>
   <div class="newMusic zhubo">
     <div class="waper">
-      <div class="title " style="cursor: pointer;" @click="method.to_list('zhuBo')">主播电台</div>
+      <div class="title" style="cursor: pointer;" @click="jump">主播电台</div>
       <div class="list">
         <ul>
           <li v-for="(item ,index) in zhubo_info" :key="index">
@@ -19,7 +19,12 @@
 
 <script>
 export default {
-  props: ["zhubo_info", "method"]
+  props: ["zhubo_info"],
+  methods: {
+    jump() {
+      this.api.to_list("zhuBo", this.$router);
+    }
+  }
 };
 </script>
 

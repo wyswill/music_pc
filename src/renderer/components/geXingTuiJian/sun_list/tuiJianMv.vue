@@ -31,8 +31,9 @@ export default {
   methods: {
     async click(event) {
       let mvid = event.target.id;
-      let res = await this.method.get_mv_url(mvid);
-      console.log(res.data);//获取的mv 数据
+      let res = await this.api.get_mv_url(mvid);
+      let { id } = res.data;
+      this.api.to_list("vidio", this.$router, { id });
     }
   }
 };
