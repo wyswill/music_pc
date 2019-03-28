@@ -2,7 +2,9 @@
 
 基于 electro-vue+docker(使用网易云音乐 API 的代理)实现的一个 pc 端应用程序。 基本功能和网易云音乐相同
 
-> An electron-vue project
+> 这个只是我个人的一个业余的项目，最近很忙，也没时间完善，等过几天闲下来了就进行一次重构。
+> 这个网易云音乐的接口我是使用的node.js版本的用docker跑，想要使用也很简单，首先下载docker 然后在命令行里输入
+`docker pull boring_sanderson && docekr run -p 3000 boring_sanderson `就OK！ 
 
 #### Build Setup
 
