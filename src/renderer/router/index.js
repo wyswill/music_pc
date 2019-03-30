@@ -51,6 +51,11 @@ export default new Router({
       component: require("@/container/vidio/index").default
     },
     {
+      path: "/zhuboshow",
+      name: "zhuboshow",
+      component: require("@/container/zhubo/index.vue").default
+    },
+    {
       path: "*",
       redirect: "/"
     }

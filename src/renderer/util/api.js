@@ -31,9 +31,15 @@ export default {
   },
   /* 的到电台节目音频 */
   async getRedio(id) {
-    let url = `http://localhost:3000/song/url?id=${id}`;
+    let url = `http://localhost:3000/dj/program?rid=${id}`;
     let res = await axios(url);
-    return res.data.data;
+    return res.data.programs;
+  },
+  /* 电台 - 详情 */
+  async getRedioinfo(id) {
+    let url = `http://localhost:3000/dj/detail?rid=${id}`;
+    let res = await axios(url);
+    return res.data.djRadio;
   },
   /* 跳转 */
   to_list(path, router, from = {}) {

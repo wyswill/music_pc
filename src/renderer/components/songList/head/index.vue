@@ -30,4 +30,5 @@ export default {
 </script>
 
 <style>
+@import url("../style/head.css");
 </style>

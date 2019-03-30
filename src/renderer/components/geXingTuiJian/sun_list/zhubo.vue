@@ -25,7 +25,7 @@ export default {
       this.api.to_list("zhuBo", this.$router);
     },
     zhubo_click(id) {
-      console.log(id);
+      this.api.to_list("zhuboshow", this.$router, { id });
     }
   }
 };
