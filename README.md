@@ -4,7 +4,8 @@
 
 > 这个只是我个人的一个业余的项目，最近很忙，也没时间完善，等过几天闲下来了就进行一次重构。
 > 这个网易云音乐的接口我是使用的node.js版本的用docker跑，想要使用也很简单，首先下载docker 然后在命令行里输入
-`docker pull boring_sanderson && docekr run -p 3000 boring_sanderson `就OK！ 
+`docker pull binaryify/netease_cloud_music_api
+docker run -d -p 3000:3000 --name netease_cloud_music_api    binaryify/netease_cloud_music_api `就OK！ 
 
 #### Build Setup
 
